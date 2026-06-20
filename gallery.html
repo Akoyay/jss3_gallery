@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo2.png">
+</head>
+<body class="gallery-page">
+  <nav class="navbar">
+
+  <div class="nav-left">
+
+   <a href="https://gnaschools.com/" target="_blank">
+   <img src="logo.png" class="nav-logo">
+   </a>
+
+    <h2>JSS3 Gallery</h2>
+
+  </div>
+
+  <div class="nav-right">
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-btn">
+      Home
+    </a>
+
+  </div>
+
+</nav>
+
+  <!-- Upload Button -->
+  <button id="uploadBtn">
+    Upload Photo
+  </button>
+
+  <input
+    type="file"
+    id="imageInput"
+    multiple
+    hidden
+  >
+
+  <div id="gallery"></div>
+
+
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
