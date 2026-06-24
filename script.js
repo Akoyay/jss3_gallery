@@ -17,7 +17,7 @@ window.studentAccess = function () {
 
   const password = prompt("Enter student password");
 
-  if (password === "jss3") {
+  if (password === "jss3gallery") {
 
     localStorage.setItem("isAdmin", "true");
 
