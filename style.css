@@ -1,298 +1,726 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  text-align: center;
+/* =========================================
+   RESET
+========================================= */
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
-.home-page {
-  background-image: url("Capture3.png");
-
-  min-height: 100vh;
+html{
+    scroll-behavior:smooth;
 }
 
-/* GALLERY PAGE BACKGROUND */
-
-.gallery-page {
-  background-image: url("Capture3.png");
-
-  min-height: 100vh;
-}
-.container h1 {
-  margin-bottom: 30px;
-  background: rgba(255,255,255,0.75);
-  padding: 40px;
-  border-radius: 20px;
+body{
+    background:#f5f7fb;
+    color:#222;
+    overflow-x:hidden;
+    animation:fadePage .8s ease;
 }
 
-.buttons {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  margin-top: 30px;
+/* =========================================
+   PAGE ANIMATION
+========================================= */
+
+@keyframes fadePage{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
 }
 
-.buttons button {
-  padding: 15px 25px;
-  border: none;
-  border-radius: 10px;
-  margin-top: 40px;
+/* =========================================
+   LOADING SCREEN
+========================================= */
 
-  font-size: 18px;
-  cursor: pointer;
+#loader{
 
-  background: rgb(31, 56, 107);
-  color: white;
-  word-spacing: 2px;
-  letter-spacing: 0.4px;
+    position:fixed;
+    inset:0;
+    background:white;
 
-  transition: 0.5s;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    z-index:99999;
+
+    transition:opacity .6s;
+
 }
 
-.buttons button:hover {
-  transform: scale(1.07);
+.loader-logo{
+
+    width:110px;
+    margin-bottom:20px;
+
+    animation:spinLogo 2s linear infinite;
+
 }
 
-/* GALLERY PAGE */
+.loader-bar{
 
-#uploadBtn {
-  padding: 12px 20px;
-  border: none;
-  background: rgb(31, 56, 107);
-  color: white;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 30px;
-  margin-bottom: 20px;
+    width:250px;
+    height:8px;
+
+    background:#ddd;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
 }
 
-#imageInput {
-  display: none;
+.loader-progress{
+
+    width:0;
+    height:100%;
+
+    background:#2563eb;
+
+    animation:loading 2s forwards;
+
 }
 
-/* GALLERY GRID */
+@keyframes loading{
 
-#gallery {
-  display: grid;
+    from{
+        width:0;
+    }
 
-  grid-template-columns:
-    repeat(auto-fill, minmax(250px, 1fr));
+    to{
+        width:100%;
+    }
 
-  gap: 20px;
-
-  padding: 20px;
 }
 
-/* PHOTO CARD */
+@keyframes spinLogo{
 
-.photo-card {
-  position: relative;
+    from{
+        transform:rotate(0deg);
+    }
 
-  overflow: hidden;
+    to{
+        transform:rotate(360deg);
+    }
 
-  border-radius: 12px;
-
-  background: white;
-
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* IMAGE */
+/* =========================================
+   NAVBAR
+========================================= */
 
-.photo-card img {
-  width: 100%;
+.navbar{
 
-  height: 250px;
+    position:sticky;
+    top:0;
 
-  object-fit: cover;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-  display: block;
+    padding:18px 50px;
+
+    background:rgba(31,56,107,.90);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.18);
+
+    z-index:1000;
+
 }
 
-.download-btn,
-.delete-btn {
+.logo{
 
-  position: absolute;
+    display:flex;
+    align-items:center;
+    gap:15px;
 
-  top: 10px;
-
-  width: 35px;
-  height: 35px;
-
-  border: none;
-
-  border-radius: 50%;
-
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.download-btn {
+.nav-logo{
 
-  right: 10px;
+    width:60px;
+    height:60px;
 
-  text-decoration: none;
+    border-radius:50%;
 
-  background: white;
+    object-fit:cover;
+
 }
 
-.delete-btn {
+.logo h2{
 
-  right: 55px;
+    color:white;
 
-  background: red;
+    font-size:28px;
 
-  color: white;
 }
 
-.title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    list-style:none;
+
 }
 
-.logo {
-  width: 180px;
-  height: 180px;
+.nav-links a{
 
-  object-fit: contain;
-}
-.container {
-  background: rgba(255,255,255,0.75);
+    color:white;
 
-  padding: 40px;
+    text-decoration:none;
 
-  border-radius: 20px;
-}
-/* NAVBAR */
-.navbar {
-  width: 95%;
+    font-weight:bold;
 
-  margin-top: 0px;
+    transition:.3s;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 15px 25px;
-
-  border-radius: 20px;
-
-  background: rgba(0, 0, 0, 0.45);
-
-  backdrop-filter: blur(10px);
-
-  box-sizing: border-box;
 }
 
-.nav-left {
-  display: flex;
-  align-items: center;
+.nav-links a:hover{
 
-  gap: 15px;
+    color:#60a5fa;
+
 }
 
-.nav-logo {
-  width: 150px;
-  height: 100px;
+/* =========================================
+   BUTTONS
+========================================= */
 
-  object-fit: contain;
+#uploadBtn,
+#uploadbtn,
+#loginBtn{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:.3s;
+
 }
 
-.nav-left h2 {
-  color: white;
-  font-size: 32px;
+#uploadBtn:hover,
+#uploadbtn:hover,
+#loginBtn:hover{
+
+    background:#1d4ed8;
+
 }
 
-.nav-right {
-  display: flex;
-  align-items: center;
+/* =========================================
+   HERO
+========================================= */
 
-  gap: 20px;
+.hero{
+
+    padding:80px 20px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(rgba(0,0,0,.45),
+    rgba(0,0,0,.45)),
+    url("background.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    color:white;
+
 }
 
-.home-btn {
-  text-decoration: none;
+.hero h1{
 
-  color: white;
+    font-size:52px;
 
-  background: rgb(31, 56, 107);
+    margin-bottom:15px;
 
-  padding: 10px 18px;
-
-  border-radius: 8px;
 }
 
-/* DARK MODE SWITCH */
+.hero p{
 
-.switch {
-  position: relative;
+    font-size:20px;
 
-  display: inline-block;
-
-  width: 60px;
-  height: 34px;
 }
 
-.switch input {
-  display: none;
+/* =========================================
+   GALLERY
+========================================= */
+
+.gallery-container{
+
+    width:92%;
+
+    max-width:1450px;
+
+    margin:50px auto;
+
 }
 
-.slider {
-  position: absolute;
+.gallery-grid{
 
-  cursor: pointer;
+    display:grid;
 
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+    grid-template-columns:repeat(4,1fr);
 
-  background-color: #ccc;
+    gap:25px;
 
-  transition: .4s;
-
-  border-radius: 34px;
 }
 
-.slider:before {
-  position: absolute;
+.photo-card{
 
-  content: "";
+    position:relative;
 
-  height: 26px;
-  width: 26px;
+    overflow:hidden;
 
-  left: 4px;
-  bottom: 4px;
+    border-radius:18px;
 
-  background-color: white;
+    background:white;
 
-  transition: .4s;
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
 
-  border-radius: 50%;
 }
 
-input:checked + .slider {
-  background-color: #2196F3;
+.photo-card img{
+
+    width:100%;
+
+    height:270px;
+
+    object-fit:cover;
+
+    cursor:pointer;
+
+    transition:.4s;
+
 }
 
-input:checked + .slider:before {
-  transform: translateX(26px);
+.photo-card:hover img{
+
+    transform:scale(1.06);
+
 }
-.ft{
-  background: rgb(31, 56, 107);
-  color: white;
-  text-align: center;
-  padding: 30px;
-  margin-top: 530px;
+
+/* =========================================
+   DOWNLOAD BUTTON
+========================================= */
+
+.download-btn{
+
+    position:absolute;
+
+    bottom:18px;
+
+    right:18px;
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    color:#2563eb;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.25);
+
+    transition:.3s;
+
+}
+
+.download-btn:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+/* =========================================
+   DELETE BUTTON
+========================================= */
+
+.delete-btn{
+
+    position:absolute;
+
+    bottom:18px;
+
+    left:18px;
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ef4444;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.25);
+
+    transition:.3s;
+
+}
+
+.delete-btn:hover{
+
+    background:#dc2626;
+
+}
+
+
+/* =========================================
+   LOGIN MODAL
+========================================= */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.65);
+
+    z-index:9999;
+
+}
+
+.modal-content{
+
+    width:400px;
+
+    max-width:90%;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    text-align:center;
+
+    position:relative;
+
+    animation:popup .35s ease;
+
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:scale(.8);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+.login-logo{
+
+    width:90px;
+
+    margin-bottom:15px;
+
+}
+
+.modal-content input{
+
+    width:100%;
+
+    padding:14px;
+
+    margin:20px 0;
+
+    border:2px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+}
+
+.modal-content input:focus{
+
+    outline:none;
+
+    border-color:#2563eb;
+
+}
+
+.close{
+
+    position:absolute;
+
+    top:15px;
+
+    right:20px;
+
+    font-size:32px;
+
+    cursor:pointer;
+
+}
+
+
+/* =========================================
+   IMAGE VIEWER
+========================================= */
+
+.viewer{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.9);
+
+    z-index:99999;
+
+}
+
+.viewer img{
+
+    max-width:90%;
+
+    max-height:90%;
+
+    border-radius:15px;
+
+    animation:zoomIn .35s ease;
+
+}
+
+@keyframes zoomIn{
+
+    from{
+
+        transform:scale(.7);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+.viewer-close{
+
+    position:absolute;
+
+    top:25px;
+
+    right:40px;
+
+    font-size:55px;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer{
+
+    margin-top:60px;
+
+    background:#1F386B;
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px;
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width:1200px){
+
+    .gallery-grid{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+}
+
+@media (max-width:900px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        padding:20px;
+
+    }
+
+    .logo h2{
+
+        font-size:24px;
+
+    }
+
+    .nav-links{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .hero{
+
+        padding:55px 20px;
+
+    }
+
+    .hero h1{
+
+        font-size:36px;
+
+    }
+
+    .hero p{
+
+        font-size:18px;
+
+    }
+
+    .gallery-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:18px;
+
+    }
+
+}
+
+@media (max-width:600px){
+
+    .gallery-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:12px;
+
+    }
+
+    .photo-card img{
+
+        height:170px;
+
+    }
+
+    .download-btn,
+    .delete-btn{
+
+        width:40px;
+
+        height:40px;
+
+        font-size:16px;
+
+    }
+
+    .viewer img{
+
+        max-width:96%;
+
+        max-height:85%;
+
+    }
+
+    .viewer-close{
+
+        font-size:40px;
+
+        top:15px;
+
+        right:20px;
+
+    }
+
 }
