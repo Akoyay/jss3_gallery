@@ -1,53 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery</title>
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="logo2.png">
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JSS3 Graduation Gallery</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" href="logo2.png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 </head>
-<body class="gallery-page">
-  <nav class="navbar">
 
-  <div class="nav-left">
+<body>
 
-   <a href="https://gnaschools.com/" target="_blank">
-   <img src="logo.png" class="nav-logo">
-   </a>
+<!-- =========================
+     LOADING SCREEN
+========================= -->
 
-    <h2>JSS3 Gallery</h2>
+<div id="loader">
 
-  </div>
+    <img src="logo.png" class="loader-logo">
 
-  <div class="nav-right">
+    <h2>Loading Gallery...</h2>
 
-    <!-- Home Button -->
-    <a href="index.html" class="home-btn">
-      Home
-    </a>
+    <div class="loader-bar">
 
-  </div>
+        <div class="loader-progress"></div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     IMAGE VIEWER
+========================= -->
+
+<div id="imageViewer" class="viewer">
+
+    <span id="closeViewer" class="viewer-close">
+
+        &times;
+
+    </span>
+
+    <img id="viewerImage">
+
+</div>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <img src="logo.png" class="nav-logo">
+
+        <h2>JSS3 Gallery</h2>
+
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+
+            <a href="index.html" class="home-btn">
+
+                Home
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <button id="uploadBtn">
+
+                Upload Photos
+
+            </button>
+
+        </li>
+
+    </ul>
 
 </nav>
 
-  <!-- Upload Button -->
-  <button id="uploadBtn">
-    Upload Photo
-  </button>
+<!-- Hidden File Input -->
 
-  <input
-    type="file"
-    id="imageInput"
-    multiple
-    hidden
-  >
+<input
+type="file"
+id="imageInput"
+accept="image/*"
+multiple
+hidden>
 
-  <div id="gallery"></div>
+<!-- =========================
+     HERO
+========================= -->
 
+<header class="hero">
 
+    <h1>
 
-  <script type="module" src="script.js"></script>
+        Graduation Gallery
+
+    </h1>
+
+    <p>
+
+        Browse and download graduation memories.
+
+    </p>
+
+</header>
+
+<!-- =========================
+     GALLERY
+========================= -->
+
+<section class="gallery-container">
+
+    <div
+    id="gallery"
+    class="gallery-grid">
+
+    </div>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <p>
+
+        &copy; 2026 Designed by OYERINDE AKOREDE
+
+    </p>
+
+</footer>
+
+<script type="module" src="script.js"></script>
+
 </body>
 </html>
