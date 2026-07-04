@@ -1,42 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JSS3 Photo Gallery</title>
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="logo2.png">
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JSS3 Graduation Gallery</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" href="logo2.png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 </head>
-<body class="home-page">
-  <nav class="navbar">
 
-  <div class="nav-left">
+<body>
 
-    <a href="https://gnaschools.com/" target="_blank">
-      <img src="logo.png" class="nav-logo">
-    </a>
+<!-- =========================
+     LOADING SCREEN
+========================= -->
 
-    <h2>JSS3 Gallery</h2>
+<div id="loader">
 
-  </div>
+    <img src="logo.png" class="loader-logo">
+
+    <h2>Loading Gallery...</h2>
+
+    <div class="loader-bar">
+
+        <div class="loader-progress"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     LOGIN POPUP
+========================= -->
+
+<div id="loginModal" class="modal">
+
+    <div class="modal-content">
+
+        <span id="closeLogin" class="close">&times;</span>
+
+        <img src="logo.png" class="login-logo">
+
+        <h2>Student Login</h2>
+
+        <p>Enter your password to upload photos.</p>
+
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="Password">
+
+        <button id="loginBtn">
+            Login
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     IMAGE VIEWER
+========================= -->
+
+<div id="imageViewer" class="viewer">
+
+    <span id="closeViewer" class="viewer-close">
+
+        &times;
+
+    </span>
+
+    <img id="viewerImage">
+
+</div>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <img src="logo.png"
+        class="nav-logo">
+
+        <h2>JSS3 Gallery</h2>
+
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+
+            <a href="index.html" class="home-btn">
+
+                Home
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#"
+            id="studentAccess"
+            class="admin-btn">
+
+                Student Access
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <button id="uploadBtn">
+
+                Upload Photos
+
+            </button>
+
+        </li>
+
+    </ul>
 
 </nav>
 
-  <div class="home-content">
 
-    <div class="buttons">
-        <button title="For Admins ONLY" onclick="studentAccess()">
-            Student Access
-        </button>
+<!-- =========================
+     HERO
+========================= -->
 
-        <button title="For Guests" onclick="guestAccess()">
-            Guest Access
-        </button>
+<header class="hero">
+
+    <h1>
+
+        JSS3 Graduation Photo Gallery
+
+    </h1>
+
+    <p>
+
+        Relive the memories of our graduation ceremony.
+
+    </p>
+
+</header>
+
+
+<!-- =========================
+     FILE INPUT
+========================= -->
+
+<input
+type="file"
+id="imageInput"
+accept="image/*"
+multiple
+hidden>
+
+
+<!-- =========================
+     GALLERY
+========================= -->
+
+<section class="gallery-container">
+
+    <div
+    id="gallery"
+    class="gallery-grid">
+
     </div>
 
-  </div>
+</section>
 
-  <script type="module" src="script.js"></script>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <p>
+
+        &copy; 2026 Designed by OYERINDE AKOREDE
+
+    </p>
+
+</footer>
+
+
+<script type="module" src="script.js"></script>
+
 </body>
 </html>
